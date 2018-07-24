@@ -1,4 +1,5 @@
 const https = require('https');
+const config = require('config');
 
 function getRepos(username, done) {
     if(!username) return done(new Error('Необходимо указать имя пользователя!'));
@@ -6,7 +7,7 @@ function getRepos(username, done) {
     const options = {
         hostname: 'api.github.com',
         path: `/users/${username}/repos`,
-        headers: {'User-Agent': 'feelosophy'}
+        headers: {'User-Agent': config.username}
     };
     const req = https.get(options, res =>{
         res.setEncoding('utf-8');
