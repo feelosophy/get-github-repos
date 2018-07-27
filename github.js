@@ -1,5 +1,5 @@
 const https = require('https');
-const config = require('config');
+const config = require('./config.json');
 
 function getRepos(username, done) {
     if(!username) return done(new Error('Необходимо указать имя пользователя!'));
